@@ -1,54 +1,1267 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portfólio de Tatiana Ramos — Projetos, Migração de Dados, Automação e Soluções Digitais." />
-  <title>Tatiana Ramos | Projetos, Dados & Automação</title>
+  <title>Mentora Sênior — Projetos 360°, Conversa &amp; Carreira</title>
+  <meta name="description" content="Aplicação web minimalista e privada da Mentora Sênior para gestão de projetos Wrike + WhatsApp, comunicação executiva e evolução de carreira." />
   <style>
-    :root{--bg:#070b14;--panel:#101827;--panel2:#0c1320;--text:#eef4ff;--muted:#9eabc0;--primary:#69a8ff;--accent:#8b7cff;--line:rgba(255,255,255,.1);--shadow:0 24px 70px rgba(0,0,0,.35)}
-    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;background:radial-gradient(circle at 80% 10%,rgba(105,168,255,.13),transparent 32%),radial-gradient(circle at 10% 30%,rgba(139,124,255,.08),transparent 30%),var(--bg);color:var(--text);line-height:1.6}
-    a{color:inherit;text-decoration:none}.container{width:min(1120px,92%);margin:auto}
-    nav{position:sticky;top:0;z-index:10;background:rgba(7,11,20,.78);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)} nav .inner{height:70px;display:flex;align-items:center;justify-content:space-between} .brand{font-weight:800;letter-spacing:.04em}.brand span{color:var(--primary)} nav .links{display:flex;gap:24px;font-size:14px;color:var(--muted)} nav .links a:hover{color:#fff}
-    .hero{padding:92px 0 70px;display:grid;grid-template-columns:1.2fr .8fr;gap:45px;align-items:center}.eyebrow{color:var(--primary);font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:12px}.hero h1{font-size:clamp(42px,6vw,72px);line-height:1.02;margin:14px 0 20px}.hero h1 span{background:linear-gradient(90deg,#fff,var(--primary),#b4aaff);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{font-size:20px;color:var(--muted);max-width:680px}.cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}.btn{padding:13px 18px;border-radius:12px;border:1px solid var(--line);font-weight:700}.btn.primary{background:linear-gradient(135deg,var(--primary),var(--accent));color:#07101d;border:none}.btn:hover{transform:translateY(-2px)}
-    .profile{background:linear-gradient(160deg,rgba(105,168,255,.14),rgba(139,124,255,.04));border:1px solid var(--line);border-radius:24px;padding:28px;box-shadow:var(--shadow)} .profile .circle{width:110px;height:110px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--primary),var(--accent));font-size:35px;font-weight:900;color:#07101d;margin-bottom:18px}.profile h3{margin:0 0 8px;font-size:25px}.profile p{font-size:15px;margin:0;color:var(--muted)}
-    section{padding:70px 0} .section-head{margin-bottom:28px}.section-head h2{font-size:36px;margin:8px 0}.section-head p{color:var(--muted);max-width:720px}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:rgba(16,24,39,.78);border:1px solid var(--line);padding:24px;border-radius:20px}.card h3{margin:0 0 10px}.card p{margin:0;color:var(--muted);font-size:15px}.tag{display:inline-block;font-size:12px;padding:5px 9px;border:1px solid var(--line);border-radius:999px;color:#c9d7ec;margin:0 6px 6px 0}
-    .project{display:flex;flex-direction:column;min-height:240px}.project .top{display:flex;justify-content:space-between;gap:10px;align-items:start}.project .links{margin-top:auto;display:flex;gap:10px;flex-wrap:wrap}.mini{font-size:13px;color:var(--primary);font-weight:700}
-    .timeline{display:grid;gap:14px}.item{padding:20px 22px;border-left:3px solid var(--primary);background:rgba(16,24,39,.62);border-radius:0 16px 16px 0}.item strong{display:block}.item span{display:block;color:var(--muted);font-size:14px;margin-top:3px}
-    .contact{display:grid;grid-template-columns:1fr 1fr;gap:18px}.contact .card a{color:var(--primary);font-weight:700}.footer{padding:36px 0 55px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
-    @media(max-width:820px){.hero,.contact{grid-template-columns:1fr}.grid{grid-template-columns:1fr}nav .links{display:none}.hero{padding-top:60px}.hero p{font-size:18px}}
+    :root {
+      --bg: #faf9f6;
+      --surface: #ffffff;
+      --subtle: #f3f1ec;
+      --border: #e5e2da;
+      --fg: #181c20;
+      --muted: #646c75;
+      --primary: #145954;
+      --primary-fg: #ffffff;
+      --ok: #1b6b48;
+      --warn: #9c5d12;
+      --risk: #b43b2e;
+      --chart-2: #76a6a1;
+      --radius: 10px;
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+    html[data-theme="dark"] {
+      --bg: #111519;
+      --surface: #181e24;
+      --subtle: #1f2730;
+      --border: #2a333d;
+      --fg: #edf1f5;
+      --muted: #93a0ad;
+      --primary: #35a096;
+      --primary-fg: #0b1918;
+      --ok: #3fb884;
+      --warn: #e09f42;
+      --risk: #e3685c;
+      --chart-2: #2d6661;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); font-family: var(--font); font-size: 14px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3 { margin: 0; font-weight: 600; letter-spacing: -0.015em; }
+    p { margin: 0; }
+    button, input, select, textarea { font-family: inherit; color: inherit; }
+
+    /* Layout */
+    header { position: sticky; top: 0; z-index: 20; background: var(--bg); border-bottom: 1px solid var(--border); }
+    .hdr-inner { max-width: 1040px; margin: 0 auto; padding: 0 20px; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { display: flex; align-items: center; gap: 10px; white-space: nowrap; }
+    .brand-dot { width: 8px; height: 8px; border-radius: 99px; background: var(--primary); }
+    .brand-title { font-size: 14px; font-weight: 600; }
+    .brand-owner { font-size: 12px; color: var(--muted); padding-left: 10px; border-left: 1px solid var(--border); }
+    nav { display: flex; align-items: center; gap: 4px; overflow-x: auto; }
+    .nav-btn { border: 1px solid transparent; background: transparent; color: var(--muted); padding: 6px 11px; border-radius: 7px; font-size: 12.5px; font-weight: 500; cursor: pointer; white-space: nowrap; }
+    .nav-btn:hover { color: var(--fg); }
+    .nav-btn.active { background: var(--surface); border-color: var(--border); color: var(--fg); }
+    .theme-btn { border: 1px solid var(--border); background: var(--surface); color: var(--muted); padding: 5px 9px; border-radius: 7px; font-size: 12px; cursor: pointer; }
+    .theme-btn:hover { color: var(--fg); }
+
+    main { max-width: 1040px; margin: 0 auto; padding: 28px 20px 56px; }
+    .pane { display: none; }
+    .pane.active { display: block; }
+    .space-y-lg > * + * { margin-top: 28px; }
+    .space-y-md > * + * { margin-top: 16px; }
+    .space-y-sm > * + * { margin-top: 10px; }
+
+    /* Grids */
+    .metrics-4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+    .grid-12 { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 32px; align-items: start; }
+    .col-4 { grid-column: span 4; }
+    .col-5 { grid-column: span 5; }
+    .col-6 { grid-column: span 6; }
+    .col-7 { grid-column: span 7; }
+    .col-8 { grid-column: span 8; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+
+    /* Typography & helpers */
+    .muted { color: var(--muted); font-size: 12.5px; }
+    .mono { font-family: var(--mono); }
+    .metric-val { font-family: var(--mono); font-size: 26px; font-weight: 600; margin-top: 2px; line-height: 1.15; }
+    .row-between { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .row-gap { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .divider-top { padding-top: 24px; border-top: 1px solid var(--border); }
+    .list-div { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .list-div > * + * { border-top: 1px solid var(--border); }
+
+    /* Components */
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 7px 13px; border-radius: 7px; font-size: 12.5px; font-weight: 500; cursor: pointer; border: 1px solid transparent; transition: opacity .15s; white-space: nowrap; }
+    .btn:hover { opacity: .9; }
+    .btn-primary { background: var(--primary); color: var(--primary-fg); }
+    .btn-outline { background: var(--surface); border-color: var(--border); color: var(--fg); }
+    .btn-link { background: transparent; border: 0; padding: 0; font-size: 12.5px; font-weight: 500; cursor: pointer; color: var(--primary); }
+    .btn-link:hover { text-decoration: underline; }
+    .btn-link-muted { background: transparent; border: 0; padding: 0; font-size: 12.5px; cursor: pointer; color: var(--muted); }
+    .btn-link-muted:hover { color: var(--fg); }
+
+    .input, .select, .textarea { width: 100%; padding: 8px 11px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); font-size: 12.5px; }
+    .input:focus, .select:focus, .textarea:focus { outline: none; border-color: var(--primary); }
+    .textarea { resize: vertical; line-height: 1.5; }
+    .select-auto { width: auto; max-width: 240px; }
+
+    .dot-tag { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); }
+    .dot { width: 6px; height: 6px; border-radius: 99px; flex-shrink: 0; background: var(--muted); }
+    .dot.ok { background: var(--ok); }
+    .dot.warn { background: var(--warn); }
+    .dot.risk { background: var(--risk); }
+    .dot.info { background: var(--primary); }
+
+    .tab-pill { padding: 5px 10px; border-radius: 6px; border: 1px solid transparent; background: transparent; font-size: 12px; font-weight: 500; color: var(--muted); cursor: pointer; }
+    .tab-pill.active { background: var(--surface); border-color: var(--border); color: var(--fg); }
+
+    /* Table */
+    .table-wrap { overflow-x: auto; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+    th, td { text-align: left; padding: 9px 8px; vertical-align: top; }
+    th { font-weight: 500; color: var(--muted); border-bottom: 1px solid var(--border); }
+    tbody tr + tr { border-top: 1px solid var(--border); }
+
+    /* Chat */
+    .chat-wrap { max-width: 740px; margin: 0 auto; }
+    .chat-feed { min-height: 260px; max-height: 500px; overflow-y: auto; padding: 4px 2px; display: flex; flex-direction: column; gap: 22px; }
+    .bubble-user { align-self: flex-end; max-width: 82%; padding: 10px 14px; border-radius: 14px 14px 3px 14px; background: var(--primary); color: var(--primary-fg); font-size: 13px; white-space: pre-wrap; }
+    .composer-box { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 10px 12px; }
+    .composer-box:focus-within { border-color: var(--primary); }
+    .composer-box textarea { width: 100%; border: 0; background: transparent; font-size: 13px; resize: none; line-height: 1.5; }
+    .composer-box textarea:focus { outline: none; }
+    .chip { padding: 4px 10px; border-radius: 99px; border: 1px solid var(--border); background: transparent; color: var(--muted); font-size: 12px; cursor: pointer; }
+    .chip:hover { color: var(--fg); border-color: var(--primary); }
+    details summary { cursor: pointer; font-size: 12px; color: var(--muted); list-style: none; }
+    details summary::-webkit-details-marker { display: none; }
+    details summary:hover { color: var(--fg); }
+
+    /* Progress bar */
+    .bar-bg { width: 100%; height: 6px; border-radius: 99px; background: var(--subtle); overflow: hidden; }
+    .bar-fill { height: 100%; background: var(--primary); }
+    .lv-btn { width: 22px; height: 22px; border-radius: 5px; font-family: var(--mono); font-size: 11px; border: 1px solid var(--border); background: var(--surface); color: var(--muted); cursor: pointer; }
+    .lv-btn.on { background: var(--primary); border-color: var(--primary); color: var(--primary-fg); }
+
+    /* Onboarding Banner */
+    .empty-hero { text-align: center; padding: 40px 20px; border: 1px dashed var(--border); border-radius: 12px; background: var(--surface); }
+
+    /* Toast */
+    .toast { position: fixed; right: 20px; bottom: 20px; background: var(--primary); color: var(--primary-fg); padding: 9px 14px; border-radius: 8px; font-size: 12.5px; font-weight: 500; opacity: 0; pointer-events: none; transition: opacity .2s; z-index: 90; }
+    .toast.show { opacity: 1; }
+
+    @media (max-width: 860px) {
+      .metrics-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid-12 { grid-template-columns: 1fr; gap: 24px; }
+      .col-4, .col-5, .col-6, .col-7, .col-8 { grid-column: auto; }
+      .grid-2 { grid-template-columns: 1fr; }
+      .brand-owner { display: none; }
+    }
   </style>
 </head>
 <body>
-  <nav><div class="inner container"><div class="brand">Tatiana <span>Ramos</span></div><div class="links"><a href="#sobre">Sobre</a><a href="#solucoes">Competências</a><a href="#projetos">Projetos</a><a href="#experiencia">Experiência</a><a href="#contato">Contato</a></div></div></nav>
+  <header>
+    <div class="hdr-inner">
+      <div class="brand">
+        <span class="brand-dot"></span>
+        <span class="brand-title">Mentora Sênior</span>
+        <span id="hdr-owner" class="brand-owner">Tatiana Ramos</span>
+      </div>
+      <div class="row-gap">
+        <nav aria-label="Navegação">
+          <button data-tab="rotina" class="nav-btn">Hoje</button>
+          <button data-tab="projetos" class="nav-btn">Projetos <span id="tab-active-count" class="mono muted">0</span></button>
+          <button data-tab="conversa" class="nav-btn">Conversa</button>
+          <button data-tab="carreira" class="nav-btn">Carreira</button>
+          <button data-tab="importar" class="nav-btn">Arquivos</button>
+        </nav>
+        <button id="theme-toggle" class="theme-btn" title="Alternar tema claro/escuro">Escuro</button>
+      </div>
+    </div>
+  </header>
 
   <main>
-    <section class="hero container">
-      <div>
-        <div class="eyebrow">Projetos • Dados • Automação</div>
-        <h1>Transformo processos complexos em <span>soluções digitais.</span></h1>
-        <p>Profissional de projetos com atuação em migração de dados, automação de processos, integração de sistemas e criação de aplicações e plugins voltados para ganho de eficiência operacional.</p>
-        <div class="cta"><a class="btn primary" href="#projetos">Ver projetos</a><a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a><a class="btn" href="https://github.com/tatiramos06" target="_blank" rel="noopener">GitHub</a></div>
+    <!-- 1. HOJE -->
+    <section id="pane-rotina" class="pane space-y-lg">
+      <div id="rotina-onboarding" class="empty-hero space-y-sm" style="display:none;">
+        <h1 style="font-size:17px;">Bem-vinda à Mentora Sênior (Versão Privada)</h1>
+        <p class="muted" style="max-width:520px; margin:6px auto 0;">Nenhum dado de cliente fica salvo no código ou em servidor. Importe sua planilha do Wrike (`.xlsx`/`.csv`) e seu export do WhatsApp (`.txt`/`.md`) para começar — tudo fica armazenado apenas no seu navegador.</p>
+        <div class="row-gap" style="justify-content:center; margin-top:14px;">
+          <button onclick="switchTab('importar')" class="btn btn-primary">Importar Wrike e WhatsApp</button>
+          <button onclick="loadDemoData()" class="btn btn-outline">Testar com dados fictícios</button>
+        </div>
       </div>
-      <div class="profile"><div class="circle">TR</div><h3>Tatiana Ramos</h3><p>Analista de Projetos • Migração de Dados • Automação • Soluções Digitais</p><div style="margin-top:20px"><span class="tag">Migração de Dados</span><span class="tag">Automação</span><span class="tag">APIs</span><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">SaaS</span></div></div>
+
+      <div id="rotina-main" class="space-y-lg">
+        <div id="rotina-metrics" class="metrics-4"></div>
+
+        <div class="grid-12">
+          <div class="col-7 space-y-md">
+            <div class="row-between">
+              <h1 style="font-size:16px;">Sua Carteira Ativa</h1>
+              <span class="muted">Somente seus projetos · Sem terceiros</span>
+            </div>
+            <div id="active-projects-clean" class="list-div"></div>
+          </div>
+
+          <div class="col-5 space-y-md">
+            <div class="row-between">
+              <h2 style="font-size:14px;">Pontos de Governança</h2>
+              <span class="muted">Wrike</span>
+            </div>
+            <div id="gov-clean" class="space-y-sm"></div>
+          </div>
+        </div>
+
+        <div class="divider-top space-y-md">
+          <div class="row-between">
+            <h2 style="font-size:14px;">Rotina Sênior</h2>
+            <div class="row-gap">
+              <button data-rt="daily" class="rt-tab tab-pill">Planejamento</button>
+              <button data-rt="closure" class="rt-tab tab-pill">Fechamento</button>
+              <button data-rt="weekly" class="rt-tab tab-pill">Semanal</button>
+            </div>
+          </div>
+          <div id="routine-editor"></div>
+        </div>
+      </div>
     </section>
 
-    <section id="sobre" class="container"><div class="section-head"><div class="eyebrow">Sobre</div><h2>Negócio + tecnologia + execução</h2><p>Minha atuação conecta conhecimento operacional, gestão de projetos e tecnologia para estruturar processos, reduzir trabalho manual e criar soluções que possam ser reutilizadas e escaladas.</p></div><div class="grid"><div class="card"><h3>Projetos</h3><p>Organização de entregas, governança, validações, kickoffs, análise de riscos e acompanhamento de resultados.</p></div><div class="card"><h3>Migração de Dados</h3><p>Estruturação e validação de processos de migração, importação, tratamento de layouts e qualidade dos dados.</p></div><div class="card"><h3>Automação</h3><p>Criação de ferramentas, plugins, aplicações web e integrações para transformar rotinas repetitivas em fluxos digitais.</p></div></div></section>
+    <!-- 2. PROJETOS 360° -->
+    <section id="pane-projetos" class="pane">
+      <div class="grid-12">
+        <div class="col-4 space-y-sm">
+          <input id="proj-search" type="search" class="input" placeholder="Buscar cliente ou licença..." />
+          <div class="row-gap">
+            <select id="proj-status" class="select" style="flex:1;">
+              <option value="all">Todos os status</option>
+              <option value="Active">Ativos</option>
+              <option value="Completed">Concluídos</option>
+              <option value="Cancelled">Cancelados</option>
+            </select>
+            <select id="proj-own" class="select" style="flex:1;">
+              <option value="all">Excl. + Comp.</option>
+              <option value="exclusivo">Exclusivos</option>
+              <option value="compartilhado">Compartilhados</option>
+            </select>
+          </div>
+          <div id="proj-list" class="list-div" style="max-height:560px; overflow-y:auto;"></div>
+        </div>
+        <div id="proj-detail" class="col-8 space-y-lg"></div>
+      </div>
+    </section>
 
-    <section id="solucoes"><div class="container"><div class="section-head"><div class="eyebrow">Competências</div><h2>O que eu construo</h2></div><div class="grid"><div class="card"><h3>Dados & Integrações</h3><p>Processamento de arquivos, layouts, APIs, validações, tratamento de dados e integração entre sistemas.</p></div><div class="card"><h3>Aplicações Web</h3><p>Interfaces browser-first para centralizar fluxos, executar processos e entregar soluções acessíveis via navegador.</p></div><div class="card"><h3>Plugins & Automação</h3><p>Soluções modulares para automatizar tarefas específicas e ampliar plataformas existentes.</p></div><div class="card"><h3>Python</h3><p>Automação e processamento com Python, incluindo APIs e rotinas de manipulação de dados.</p></div><div class="card"><h3>FastAPI</h3><p>Backends e endpoints para aplicações de automação e integração.</p></div><div class="card"><h3>Visão de Produto</h3><p>Estruturação de soluções pensando em problema, usuário, escalabilidade, governança e valor entregue.</p></div></div></div></section>
+    <!-- 3. CONVERSA -->
+    <section id="pane-conversa" class="pane">
+      <div class="chat-wrap space-y-md">
+        <div class="row-between" style="padding-bottom:14px; border-bottom:1px solid var(--border);">
+          <div class="row-gap">
+            <select id="chat-proj" class="select select-auto" aria-label="Cliente"></select>
+            <select id="chat-aud" class="select select-auto" aria-label="Destinatário">
+              <option value="implantacao">Para: Implantação</option>
+              <option value="cliente">Para: Cliente</option>
+              <option value="outra_area">Para: Outra Área (IZ / Suporte)</option>
+              <option value="lideranca">Para: Liderança</option>
+              <option value="equipe">Para: Equipe</option>
+            </select>
+            <select id="chat-goal" class="select select-auto" aria-label="Objetivo">
+              <option value="alinhar_risco">Alinhar risco / prazo</option>
+              <option value="cobrar_retorno">Cobrar retorno / aceite</option>
+              <option value="escalar_bloqueio">Cobrar outra área</option>
+              <option value="reportar_status">Reportar status</option>
+              <option value="responder_duvida">Responder dúvida</option>
+            </select>
+          </div>
+          <button id="chat-reset" class="btn-link-muted">Nova conversa</button>
+        </div>
 
-    <section id="projetos" class="container"><div class="section-head"><div class="eyebrow">Portfólio</div><h2>Projetos em destaque</h2><p>Projetos públicos selecionados a partir do meu ecossistema no GitHub e da iniciativa AURA.</p></div><div class="grid">
-      <div class="card project"><div class="top"><div><span class="mini">01 • PRINCIPAL</span><h3>Aura Automation</h3></div><span class="tag">SaaS</span></div><p>Plataforma web de automação, integração de fluxos e marketplace de automações. A arquitetura prevê módulos de backend, frontend, engine, plugins, SDKs e documentação técnica.</p><div style="margin-top:14px"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">Redis</span><span class="tag">Plugins</span></div><div class="links"><a class="btn" href="https://aura-automation.onrender.com/" target="_blank" rel="noopener">Abrir aplicação</a><a class="btn" href="https://github.com/tatiramos06/Aura-Automa-es-" target="_blank" rel="noopener">Código</a></div></div>
-      <div class="card project"><div class="top"><div><span class="mini">02 • SOLUÇÃO</span><h3>Automação & Migração</h3></div><span class="tag">Dados</span></div><p>Conjunto de soluções orientadas a migração de dados, validação, tratamento de arquivos e automatização de atividades operacionais, com foco em qualidade e redução de esforço manual.</p><div style="margin-top:14px"><span class="tag">ETL</span><span class="tag">Excel</span><span class="tag">APIs</span><span class="tag">Validação</span></div><div class="links"><a class="btn" href="https://github.com/tatiramos06" target="_blank" rel="noopener">Ver no GitHub</a></div></div>
-      <div class="card project"><div class="top"><div><span class="mini">03 • LABORATÓRIO</span><h3>Projetos de IA</h3></div><span class="tag">IA</span></div><p>Experimentação e desenvolvimento de ideias com inteligência artificial, automação e ferramentas digitais para resolver problemas práticos.</p><div style="margin-top:14px"><span class="tag">IA</span><span class="tag">Automação</span><span class="tag">Prototipação</span></div><div class="links"><a class="btn" href="https://github.com/tatiramos06" target="_blank" rel="noopener">Explorar GitHub</a></div></div>
-    </div></section>
+        <div id="chat-context-strip" class="card row-between" style="display:none; padding:9px 13px;"></div>
+        <div id="chat-feed" class="chat-feed"></div>
 
-    <section id="experiencia"><div class="container"><div class="section-head"><div class="eyebrow">Experiência</div><h2>Uma carreira orientada a eficiência</h2></div><div class="timeline"><div class="item"><strong>Projetos & Operações</strong><span>Gestão e acompanhamento de projetos, governança, validações e melhoria contínua de processos.</span></div><div class="item"><strong>Migração de Dados</strong><span>Estruturação de fluxos de importação, tratamento de dados, validação e suporte a migrações entre ambientes.</span></div><div class="item"><strong>Automação & Desenvolvimento</strong><span>Criação de aplicações, plugins, scripts e integrações para digitalizar rotinas e ampliar a capacidade operacional.</span></div></div></div></section>
+        <div class="space-y-sm" style="padding-top:14px; border-top:1px solid var(--border);">
+          <div class="row-gap">
+            <button class="chip quick-chip" data-q="Deixa mais curto e direto para WhatsApp.">Mais curto</button>
+            <button class="chip quick-chip" data-q="Deixa mais firme cobrando data-limite de retorno.">Mais firme</button>
+            <button class="chip quick-chip" data-q="Transforma em formato de e-mail executivo.">E-mail</button>
+            <button class="chip quick-chip" data-q="Qual o risco e impacto se eu só esperar sem cobrar hoje?">Ver risco</button>
+          </div>
+          <div class="composer-box">
+            <textarea id="chat-input" rows="3" placeholder="Cole uma mensagem do WhatsApp ou explique o caso — eu cruzo automaticamente com seus clientes do Wrike e sugiro o texto..."></textarea>
+            <div class="row-between" style="padding-top:8px; border-top:1px solid var(--border);">
+              <span class="muted" style="font-size:11.5px;">Ctrl + Enter para enviar</span>
+              <button id="chat-send" class="btn btn-primary">Analisar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <section id="contato" class="container"><div class="section-head"><div class="eyebrow">Contato</div><h2>Vamos conversar sobre projetos e automação.</h2></div><div class="contact"><div class="card"><h3>LinkedIn</h3><p>Perfil profissional e trajetória.</p><a href="https://www.linkedin.com/" target="_blank" rel="noopener">Acessar LinkedIn →</a></div><div class="card"><h3>GitHub</h3><p>Código, experimentos e projetos públicos.</p><a href="https://github.com/tatiramos06" target="_blank" rel="noopener">Acessar GitHub →</a></div><div class="card"><h3>AURA Automation</h3><p>Projeto autoral de automação e soluções web.</p><a href="https://aura-automation.onrender.com/" target="_blank" rel="noopener">Abrir AURA →</a></div><div class="card"><h3>Disponibilidade</h3><p>Projetos de automação, dados, integrações e soluções digitais.</p><span class="mini">Aberta a conexões profissionais</span></div></div></section>
+    <!-- 4. CARREIRA -->
+    <section id="pane-carreira" class="pane space-y-lg">
+      <div id="carreira-metrics" class="metrics-4"></div>
+
+      <div class="grid-12">
+        <div class="col-7 space-y-sm">
+          <h2 style="font-size:14px;">Entregas por Mês (Exclusivas)</h2>
+          <div id="monthly-chart" class="card"></div>
+          <p id="cycle-callout" class="muted"></p>
+        </div>
+        <div class="col-5 space-y-md">
+          <h2 style="font-size:14px;">Qualidade de Dados (Wrike)</h2>
+          <div id="dq-bars" class="space-y-sm"></div>
+          <p id="sys-summary" class="muted divider-top" style="padding-top:12px;"></p>
+        </div>
+      </div>
+
+      <div class="grid-12 divider-top">
+        <div class="col-6 space-y-sm">
+          <h2 style="font-size:14px;">Trilha Sênior (5 Pilares)</h2>
+          <div id="tracks-list" class="list-div"></div>
+        </div>
+        <div class="col-6 space-y-md">
+          <h2 style="font-size:14px;">Evidências de Senioridade</h2>
+          <form id="ev-form" class="space-y-sm">
+            <div class="row-gap">
+              <select id="ev-track" class="select" style="flex:1;"></select>
+              <select id="ev-proj" class="select" style="flex:1;"></select>
+            </div>
+            <input id="ev-title" required class="input" placeholder="Nova entrega estratégica ou padronização..." />
+            <div class="row-gap">
+              <input id="ev-impact" class="input" style="flex:1;" placeholder="Impacto gerado (opcional)..." />
+              <button type="submit" class="btn btn-primary">Registrar</button>
+            </div>
+          </form>
+          <div id="ev-list" class="list-div"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. ARQUIVOS & TRIAGEM -->
+    <section id="pane-importar" class="pane space-y-lg">
+      <div class="grid-2" style="padding-bottom:24px; border-bottom:1px solid var(--border);">
+        <div class="space-y-sm">
+          <h2 style="font-size:14px;">1. Planilha do Wrike (.xlsx ou .csv)</h2>
+          <div class="row-gap">
+            <input id="imp-owner" value="Tatiana Ramos" class="input" style="flex:1;" aria-label="Responsável" />
+            <label class="btn btn-outline">
+              <input id="imp-wrike-file" type="file" accept=".xlsx,.csv" style="display:none;" />
+              <span id="imp-wrike-lbl">Escolher arquivo</span>
+            </label>
+            <button id="imp-wrike-btn" class="btn btn-primary">Importar</button>
+          </div>
+          <p id="imp-wrike-meta" class="muted">Os arquivos são lidos 100% no seu navegador — nada é enviado para servidores externos.</p>
+        </div>
+
+        <div class="space-y-sm">
+          <h2 style="font-size:14px;">2. Exportação do WhatsApp (.txt ou .md)</h2>
+          <div class="row-gap">
+            <label class="btn btn-outline" style="flex:1; justify-content:flex-start; overflow:hidden;">
+              <input id="imp-wa-file" type="file" accept=".txt,.md" style="display:none;" />
+              <span id="imp-wa-lbl" style="overflow:hidden; text-overflow:ellipsis;">Escolher chat.txt ou chat.md</span>
+            </label>
+            <button id="imp-wa-btn" class="btn btn-primary">Cruzar</button>
+          </div>
+          <p id="imp-wa-meta" class="muted">Cruza automaticamente com seus clientes do Wrike e separa o que não é cliente.</p>
+        </div>
+      </div>
+
+      <!-- Backup & Privacy Controls -->
+      <div class="row-between" style="padding-bottom:20px; border-bottom:1px solid var(--border);">
+        <div>
+          <h2 style="font-size:14px;">Backup Local &amp; Privacidade</h2>
+          <p class="muted">Exporte um arquivo .json para levar suas notas, rotinas e evidências para outro computador.</p>
+        </div>
+        <div class="row-gap">
+          <button id="export-backup-btn" class="btn btn-outline">Exportar Backup (.json)</button>
+          <label class="btn btn-outline">
+            <input id="import-backup-file" type="file" accept=".json" style="display:none;" />
+            Restaurar Backup
+          </label>
+          <button id="clear-data-btn" class="btn-link-muted" style="margin-left:6px;">Limpar tudo</button>
+        </div>
+      </div>
+
+      <!-- Triage -->
+      <div class="space-y-md">
+        <div class="row-between">
+          <div>
+            <h2 style="font-size:14px;">Cruzamento WhatsApp: Clientes vs. Não-Clientes</h2>
+            <p class="muted">Separe mensagens internas (Zendesk, formulários, instabilidade) da carteira de clientes.</p>
+          </div>
+          <input id="triage-q" type="search" class="input" style="max-width:240px;" placeholder="Filtrar mensagens..." />
+        </div>
+
+        <div class="row-gap" style="padding-bottom:10px; border-bottom:1px solid var(--border);">
+          <button data-trcat="possivel_cliente" class="tr-tab tab-pill"></button>
+          <button data-trcat="operacao_interna" class="tr-tab tab-pill"></button>
+          <button data-trcat="ruido_informal" class="tr-tab tab-pill"></button>
+        </div>
+
+        <div id="triage-list" class="list-div"></div>
+      </div>
+    </section>
   </main>
 
-  <footer class="footer"><div class="container">© 2026 Tatiana Ramos • Projetos, Dados & Automação • Construído com HTML, CSS e GitHub Pages.</div></footer>
+  <div id="toast" class="toast" role="status"></div>
+
+  <script>
+    const STORAGE_KEY = 'mentora_senior_web_prod_v1';
+    const THEME_KEY = 'mentora_senior_theme';
+
+    function createEmptyState() {
+      return {
+        meta: { ownerFilter: 'Tatiana Ramos', wrikeMeta: null, whatsappMeta: null },
+        summary: {
+          exclusive: {
+            total: 0, byStatus: { Completed: 0, Active: 0, Cancelled: 0 },
+            byCustomStatus: { '05 - Validação Cliente': 0 },
+            volumesCompleted: { condos: 0, units: 0, charges: 0 },
+            volumesActive: { condos: 0, units: 0, charges: 0 },
+            sourceSystems: {}, monthlyCompleted: [],
+            cycleMetrics: { sampleSize: 0, medianDays: null, avgDays: null, onTimeCount: 0, afterEndDateCount: 0 },
+            dataQuality: { missingTmi: 0, missingStartDate: 0, missingImportType: 0, cancelledWithoutReason: 0 }
+          },
+          allWithParticipation: { total: 0 }
+        },
+        projects: [],
+        timeline: [],
+        routines: {
+          daily: { topPriorities: '', criticalRisks: '', dependencies: '', expectedOutcome: '' },
+          closure: { completedToday: '', pendingItems: '', waitingThirdParties: '', firstPriorityTomorrow: '' },
+          weekly: { deliveries: '', projectsAtRisk: '', decisionsNeeded: '', nextWeekPriorities: '' }
+        },
+        career: {
+          tracks: [
+            { id: 'estrategia', order: 1, name: 'Visão Estratégica e Liderança', level: 3, currentFocus: 'Blindar carteira antes de absorver demandas extras e influenciar decisões de SLA.' },
+            { id: 'dados', order: 2, name: 'Ciência de Dados, SQL e Power BI', level: 2, currentFocus: 'Transformar exportações do Wrike em indicadores reais de ciclo e qualidade.' },
+            { id: 'comunicacao', order: 3, name: 'Comunicação Executiva', level: 3, currentFocus: 'Fato → Risco → Encaminhamento com naturalidade.' },
+            { id: 'projetos', order: 4, name: 'Gestão Avançada de Projetos', level: 3, currentFocus: 'Visão 360° e governança de validações pendentes.' },
+            { id: 'automacao', order: 5, name: 'Automação, Python e Integrações', level: 2, currentFocus: 'Padronização de formulários e cruzamento automático de arquivos.' }
+          ],
+          evidences: []
+        },
+        chatSession: { projectId: '', audience: 'implantacao', goal: 'cobrar_retorno', turns: [] }
+      };
+    }
+
+    function createDemoState() {
+      const s = createEmptyState();
+      s.meta.wrikeMeta = { fileName: 'exemplo_ficticio.xlsx', totalRowsInFile: 120, excludedOtherOwners: 95, matchedTotal: 25, exclusiveCount: 22, sharedCount: 3, projectCount: 3 };
+      s.meta.whatsappMeta = { fileName: 'exemplo_chat.txt', totalMessages: 40, autoLinkedCount: 4 };
+      s.summary.exclusive = {
+        total: 22, byStatus: { Completed: 17, Active: 3, Cancelled: 2 },
+        byCustomStatus: { '05 - Validação Cliente': 2 },
+        volumesCompleted: { condos: 110, units: 8400, charges: 19200 },
+        volumesActive: { condos: 24, units: 1900, charges: 210 },
+        sourceSystems: { Superlogica: 12, Cond21: 5, Condomob: 3, Ahreas: 2 },
+        monthlyCompleted: [{ month: '2026-08', count: 4 }, { month: '2026-09', count: 5 }, { month: '2026-10', count: 6 }, { month: '2026-11', count: 2 }],
+        cycleMetrics: { sampleSize: 15, medianDays: 7, avgDays: 8.4, onTimeCount: 5, afterEndDateCount: 10 },
+        dataQuality: { missingTmi: 22, missingStartDate: 4, missingImportType: 12, cancelledWithoutReason: 1 }
+      };
+      s.summary.allWithParticipation.total = 25;
+      s.projects = [
+        {
+          id: 'demo_1', name: 'Administradora Exemplo Alfa', license: 'admin000101', aliases: ['admin000101', 'alfa'],
+          status: 'Active', ownership: 'exclusivo', isBigplayer: false, inImplementation: 'Sim', implantationOwner: 'Ana',
+          sourceSystems: ['Ahreas'], targetSystems: ['Superlogica'], priorityScore: 78, activeLots: 1, nextDueDate: '2026-11-26',
+          totalCondos: 12, totalUnits: 900, totalCharges: 0,
+          alerts: [{ severity: 'high', taskKey: '101', message: 'Prazo de execução vence amanhã — em Aguardando Execução.' }],
+          tasks: [{ key: '101', title: 'Alfa - Lote 1 Cadastros', status: 'Active', customStatus: '01 - Aguardando Execução', isExclusive: true, endDate: '2026-11-26', importCompletedDate: '', pauseReason: '' }]
+        },
+        {
+          id: 'demo_2', name: 'Administradora Exemplo Beta', license: 'admin000202', aliases: ['admin000202', 'beta'],
+          status: 'Active', ownership: 'exclusivo', isBigplayer: true, inImplementation: 'Sim', implantationOwner: 'Carla',
+          sourceSystems: ['Condomob'], targetSystems: ['Superlogica'], priorityScore: 55, activeLots: 2, nextDueDate: '2026-11-20',
+          totalCondos: 12, totalUnits: 1000, totalCharges: 210,
+          alerts: [{ severity: 'info', taskKey: '202', message: 'Importação concluída em 18/11 — aguardando aceite do cliente.' }],
+          tasks: [{ key: '202', title: '[Bigplayer] Beta - Lote 2 Cadastros', status: 'Active', customStatus: '05 - Validação Cliente', isExclusive: true, endDate: '2026-11-20', importCompletedDate: '2026-11-18', pauseReason: '1 condomínio com IZ' }]
+        }
+      ];
+      s.timeline = [
+        { id: 'd1', source: 'note', date: '2026-11-24', time: '10:00', author: 'Tatiana', content: 'Importação concluída; 1 condomínio isolado sob tratativa do time de IZ.', projectId: 'demo_2', messageCategory: 'cliente_vinculado', dependencyOwner: 'outra_area' },
+        { id: 'd2', source: 'whatsapp', date: '2026-11-24', time: '11:30', author: 'Colega', content: 'Esse condomínio sem conta PJBank precisa acionar o time de IZ.', projectId: null, messageCategory: 'possivel_cliente', dependencyOwner: 'outra_area' },
+        { id: 'd3', source: 'whatsapp', date: '2026-11-24', time: '14:00', author: 'Você', content: 'Criei o novo formulário no pipeline do Wrike para padronizar a entrada.', projectId: null, messageCategory: 'operacao_interna', dependencyOwner: 'nenhuma' }
+      ];
+      s.career.evidences = [{ id: 'dev1', date: '2026-11-24', trackId: 'automacao', title: 'Padronização de formulário no Wrike (Exemplo)', impact: 'Redução de retrabalho na abertura de demandas.' }];
+      return s;
+    }
+
+    let state = loadState();
+    let currentTab = 'rotina';
+    let currentRtTab = 'daily';
+    let currentTriageCat = 'possivel_cliente';
+    let selectedProjId = state.projects[0]?.id || null;
+
+    function loadState() {
+      try { const r = localStorage.getItem(STORAGE_KEY); if (r) return JSON.parse(r); } catch {}
+      return createEmptyState();
+    }
+    function saveState() { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch {} }
+    function esc(s) { return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+    function norm(s) { return String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase(); }
+    function fmtDate(iso) { return iso && /^\d{4}-\d{2}-\d{2}/.test(iso) ? iso.slice(0,10).split('-').reverse().join('/') : '—'; }
+    function fmtNum(n) { return Number(n || 0).toLocaleString('pt-BR'); }
+    function shortName(name) { return (name || '').replace(/\b(LTDA|ME|EIRELI|S\.?S\.?|Administradora.*|Assessoria.*|Contabilidade.*|Gestão.*)\b/gi, '').replace(/\s+/g,' ').trim() || name; }
+
+    function toast(msg) {
+      const el = document.getElementById('toast');
+      el.textContent = msg;
+      el.classList.add('show');
+      clearTimeout(toast._t);
+      toast._t = setTimeout(() => el.classList.remove('show'), 2800);
+    }
+
+    function dotTag(label, tone = '') {
+      return `<span class="dot-tag"><span class="dot ${tone}"></span>${esc(label)}</span>`;
+    }
+
+    function applyTheme(t) {
+      document.documentElement.setAttribute('data-theme', t);
+      document.getElementById('theme-toggle').textContent = t === 'dark' ? 'Claro' : 'Escuro';
+      try { localStorage.setItem(THEME_KEY, t); } catch {}
+    }
+
+    window.loadDemoData = function() {
+      state = createDemoState();
+      selectedProjId = state.projects[0]?.id || null;
+      saveState(); render(); toast('Dados fictícios carregados para teste.');
+    };
+
+    window.switchTab = function(tab) {
+      currentTab = tab;
+      document.querySelectorAll('.pane').forEach(p => p.classList.remove('active'));
+      document.getElementById('pane-' + tab).classList.add('active');
+      document.querySelectorAll('.nav-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
+      render();
+    };
+
+    function render() {
+      document.getElementById('hdr-owner').textContent = state.meta.ownerFilter || 'Tatiana Ramos';
+      document.getElementById('tab-active-count').textContent = state.projects.filter(p => p.status === 'Active').length;
+      if (currentTab === 'rotina') renderRotina();
+      else if (currentTab === 'projetos') renderProjetos();
+      else if (currentTab === 'conversa') renderConversa();
+      else if (currentTab === 'carreira') renderCarreira();
+      else if (currentTab === 'importar') renderImportar();
+    }
+
+    /* ========== 1. HOJE ========== */
+    function renderRotina() {
+      const hasData = state.projects.length > 0;
+      document.getElementById('rotina-onboarding').style.display = hasData ? 'none' : 'block';
+      document.getElementById('rotina-main').style.display = hasData ? 'block' : 'none';
+      if (!hasData) return;
+
+      const e = state.summary.exclusive, a = state.summary.allWithParticipation;
+      const valC = e.byCustomStatus['05 - Validação Cliente'] || 0;
+      const execC = Math.max(0, (e.byStatus.Active || 0) - valC);
+      const totImp = (e.byStatus.Completed || 0) + valC;
+
+      document.getElementById('rotina-metrics').innerHTML = [
+        ['Em Execução Técnica', execC, 'fila ativa agora'],
+        ['Importação Concluída', valC, 'aguardando aceite do cliente'],
+        ['Encerrados (07)', e.byStatus.Completed || 0, `${totImp} importações concluídas`],
+        ['Carteira Exclusiva', e.total, `+ ${Math.max(0, a.total - e.total)} compartilhados`]
+      ].map(([l,v,s]) => `<div><div class="muted">${l}</div><div class="metric-val">${v}</div><div class="muted">${s}</div></div>`).join('');
+
+      const activeProjs = state.projects.filter(p => p.status === 'Active');
+      document.getElementById('active-projects-clean').innerHTML = activeProjs.map(p => {
+        const act = p.tasks.filter(t => t.status === 'Active');
+        const allVal = act.length > 0 && act.every(t => t.customStatus === '05 - Validação Cliente');
+        const nC = state.timeline.filter(t => t.projectId === p.id).length;
+        return `
+          <div style="padding:14px 0;" class="row-between">
+            <div class="space-y-sm" style="gap:4px;">
+              <div class="row-gap">
+                <button onclick="openProj('${p.id}')" class="btn-link" style="color:var(--fg); font-size:14px;">${esc(shortName(p.name))}</button>
+                ${p.isBigplayer ? '<span style="font-size:11px; color:var(--primary); font-weight:600;">Bigplayer</span>' : ''}
+              </div>
+              <div class="row-gap">
+                ${allVal ? dotTag('Importação concluída · aguard. aceite', 'ok') : dotTag('Fila de execução' + (p.nextDueDate ? ' · prazo ' + fmtDate(p.nextDueDate) : ''), 'risk')}
+                <span class="muted mono">${p.activeLots} lote(s) · ${nC} reg.</span>
+              </div>
+            </div>
+            <div class="row-gap">
+              <button onclick="openProj('${p.id}')" class="btn-link-muted">Abrir 360°</button>
+              <button onclick="openChat('${p.id}')" class="btn-link">Conversar →</button>
+            </div>
+          </div>
+        `;
+      }).join('') || '<div class="muted" style="padding:18px 0;">Nenhum projeto ativo.</div>';
+
+      const alerts = [];
+      activeProjs.forEach(p => (p.alerts || []).forEach(al => alerts.push({ ...al, pname: shortName(p.name) })));
+      document.getElementById('gov-clean').innerHTML = alerts.map(al => `
+        <div class="card space-y-sm">
+          <div class="row-between">
+            <span style="font-size:12.5px; font-weight:500;">${esc(al.pname)} <span class="mono muted">#${esc(al.taskKey)}</span></span>
+            ${dotTag(al.severity === 'high' ? 'Execução' : al.severity === 'medium' ? 'Governança' : 'Aceite', al.severity === 'high' ? 'risk' : al.severity === 'medium' ? 'warn' : 'info')}
+          </div>
+          <p class="muted">${esc(al.message)}</p>
+        </div>
+      `).join('') || '<p class="muted">Sem alertas no momento.</p>';
+
+      renderRoutineEditor();
+    }
+
+    function renderRoutineEditor() {
+      document.querySelectorAll('.rt-tab').forEach(b => b.classList.toggle('active', b.dataset.rt === currentRtTab));
+      const r = state.routines[currentRtTab];
+      const fields = currentRtTab === 'daily'
+        ? [['topPriorities','Prioridades do dia',3],['criticalRisks','Riscos preventivos',3],['dependencies','Dependências',2],['expectedOutcome','Resultado esperado',2]]
+        : currentRtTab === 'closure'
+        ? [['completedToday','Concluído hoje (confirmado)',2],['pendingItems','Pendente',2],['waitingThirdParties','Depende de terceiros',2],['firstPriorityTomorrow','Primeira prioridade amanhã',2]]
+        : [['deliveries','Entregas da semana',2],['projectsAtRisk','Gargalos / riscos',2],['decisionsNeeded','Decisões necessárias',2],['nextWeekPriorities','Foco da próxima semana',2]];
+
+      document.getElementById('routine-editor').innerHTML = `
+        <div class="grid-2">
+          ${fields.map(([k, lbl, rows]) => `<div class="space-y-sm"><label class="muted" style="display:block;">${lbl}</label><textarea id="rt-${k}" rows="${rows}" class="textarea">${esc(r[k] || '')}</textarea></div>`).join('')}
+        </div>
+        <div style="display:flex; justify-content:flex-end; margin-top:12px;">
+          <button onclick="saveRt('${currentRtTab}')" class="btn btn-primary">Salvar rotina</button>
+        </div>
+      `;
+    }
+    window.saveRt = function(sec) {
+      const target = state.routines[sec];
+      Object.keys(target).forEach(k => { const el = document.getElementById('rt-' + k); if (el) target[k] = el.value; });
+      saveState(); toast('Rotina salva no navegador.');
+    };
+
+    /* ========== 2. PROJETOS 360° ========== */
+    window.openProj = function(id) { selectedProjId = id; switchTab('projetos'); };
+    window.selProj = function(id) { selectedProjId = id; renderProjetos(); };
+
+    function renderProjetos() {
+      const q = norm(document.getElementById('proj-search').value);
+      const stF = document.getElementById('proj-status').value, owF = document.getElementById('proj-own').value;
+      const list = state.projects.filter(p => {
+        if (stF !== 'all' && p.status !== stF) return false;
+        if (owF === 'exclusivo' && p.ownership !== 'exclusivo') return false;
+        if (owF === 'compartilhado' && p.ownership === 'exclusivo') return false;
+        return !q || norm(`${p.name} ${p.license} ${(p.aliases||[]).join(' ')}`).includes(q);
+      });
+      if (!list.find(p => p.id === selectedProjId)) selectedProjId = list[0]?.id || null;
+
+      document.getElementById('proj-list').innerHTML = list.map(p => {
+        const sel = p.id === selectedProjId;
+        const allVal = p.status === 'Active' && p.tasks.filter(t => t.status === 'Active').every(t => t.customStatus === '05 - Validação Cliente');
+        return `
+          <button onclick="selProj('${p.id}')" style="width:100%; text-align:left; padding:10px; border:0; background:${sel ? 'var(--surface)' : 'transparent'}; cursor:pointer;">
+            <div class="row-between"><span style="font-size:13px; font-weight:${sel ? 600 : 500};">${esc(shortName(p.name))}</span>${p.isBigplayer ? '<span style="font-size:11px; color:var(--primary);">BP</span>' : ''}</div>
+            <div style="margin-top:4px;">${p.status === 'Active' ? dotTag(allVal ? 'Import. concluída (aceite)' : 'Em execução', allVal ? 'ok' : 'risk') : dotTag(p.status === 'Completed' ? 'Concluído' : 'Cancelado', p.status === 'Completed' ? 'ok' : '')}</div>
+          </button>
+        `;
+      }).join('') || '<div class="muted" style="padding:20px; text-align:center;">Importe sua planilha do Wrike na aba Arquivos.</div>';
+
+      const p = state.projects.find(x => x.id === selectedProjId), det = document.getElementById('proj-detail');
+      if (!p) { det.innerHTML = ''; return; }
+      const tl = state.timeline.filter(e => e.projectId === p.id);
+
+      det.innerHTML = `
+        <div class="row-between" style="padding-bottom:16px; border-bottom:1px solid var(--border);">
+          <div>
+            <h2 style="font-size:17px;">${esc(p.name)}</h2>
+            <div class="row-gap muted" style="margin-top:4px;">
+              ${p.license ? `<span class="mono">${esc(p.license)}</span>` : ''}
+              <span>${p.ownership === 'exclusivo' ? 'Exclusivo seu' : 'Compartilhado'}</span>
+              ${p.implantationOwner ? `<span>Implantação: ${esc(p.implantationOwner)}</span>` : ''}
+              ${p.sourceSystems.length ? `<span>${esc(p.sourceSystems.join('/'))} → ${esc(p.targetSystems.join('/'))}</span>` : ''}
+            </div>
+          </div>
+          <button onclick="openChat('${p.id}')" class="btn btn-primary">Conversar com contexto</button>
+        </div>
+
+        <div class="space-y-sm">
+          <div class="row-between">
+            <span style="font-size:13px; font-weight:600;">Lotes no Wrike (${p.tasks.length})</span>
+            <span class="muted mono">${fmtNum(p.totalCondos)} cond. · ${fmtNum(p.totalUnits)} unid. · ${fmtNum(p.totalCharges)} cobr.</span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Lote</th><th>Status</th><th>Prazo</th><th>Importação</th><th>Motivo</th></tr></thead>
+              <tbody>
+                ${p.tasks.map(t => `<tr><td><span class="mono muted">#${esc(t.key)}</span> ${esc(t.title)}</td><td>${esc(t.customStatus || t.status)}</td><td class="mono">${fmtDate(t.endDate)}</td><td class="mono">${fmtDate(t.importCompletedDate)}</td><td class="muted">${esc(t.pauseReason || '—')}</td></tr>`).join('')}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="space-y-sm">
+          <div style="font-size:13px; font-weight:600;">Conversas &amp; Registros (${tl.length})</div>
+          <form onsubmit="addNote(event,'${p.id}')" class="composer-box">
+            <textarea id="n-txt" required rows="2" placeholder="Adicionar nota, dependência ou colar mensagem deste cliente..."></textarea>
+            <div class="row-between" style="padding-top:8px; border-top:1px solid var(--border);">
+              <div class="row-gap">
+                <select id="n-src" class="select select-auto" style="padding:4px 8px;"><option value="note">Nota</option><option value="pasted">Mensagem colada</option><option value="decision">Decisão</option></select>
+                <select id="n-dep" class="select select-auto" style="padding:4px 8px;"><option value="nenhuma">Sem dependência</option><option value="cliente">Dep. Cliente</option><option value="outra_area">Dep. Outra Área (IZ)</option><option value="interna">Interna</option></select>
+              </div>
+              <button type="submit" class="btn btn-primary">Registrar</button>
+            </div>
+          </form>
+
+          <div class="list-div">
+            ${tl.map(e => `
+              <div style="padding:12px 0;" class="space-y-sm">
+                <div class="row-between muted">
+                  <span><strong style="color:var(--fg);">${esc(e.author)}</strong> · ${e.source === 'whatsapp' ? 'WhatsApp' : e.source === 'decision' ? 'Encaminhamento' : 'Registro'}</span>
+                  <span class="mono">${fmtDate(e.date)} ${esc(e.time||'')}</span>
+                </div>
+                <p style="font-size:13px; white-space:pre-wrap;">${esc(e.content)}</p>
+              </div>
+            `).join('') || '<div class="muted" style="padding:16px 0;">Nenhum registro vinculado ainda.</div>'}
+          </div>
+        </div>
+      `;
+    }
+
+    window.addNote = function(ev, pid) {
+      ev.preventDefault();
+      const txt = document.getElementById('n-txt').value.trim(); if (!txt) return;
+      const now = new Date();
+      state.timeline.unshift({ id: 'reg_' + Date.now(), source: document.getElementById('n-src').value, date: now.toISOString().slice(0,10), time: now.toTimeString().slice(0,5), author: 'Tatiana', content: txt, projectId: pid, messageCategory: 'cliente_vinculado', dependencyOwner: document.getElementById('n-dep').value });
+      saveState(); renderProjetos(); toast('Registro salvo.');
+    };
+
+    /* ========== 3. CONVERSA & CRUZAMENTO DE CLIENTES ========== */
+    window.openChat = function(pid) { state.chatSession.projectId = pid; saveState(); switchTab('conversa'); };
+
+    function classifyMessageCategory(content) {
+      const n = norm(content);
+      const words = n.split(/[^a-z0-9]+/).filter(Boolean);
+      if (words.length <= 4 && /bom dia|boa tarde|beleza|blz|obrigad|valeu|kkk|\bok\b|tranquilo|incluso|ja esta|bora/.test(n)) return 'ruido_informal';
+      if (/condominio|cond\.|\blote\b|\biz\b|pjbank|dados bancarios|subindo os arquivos|validacao cliente|inadimplencia|importacao de/.test(n)) return 'possivel_cliente';
+      if (/zendesk|formulario|daily|escala|instabilidade|conversor|reuniao|pipeline|plantonista|orcamento|valor da importacao|chamado|fila/.test(n)) return 'operacao_interna';
+      return n.length < 30 ? 'ruido_informal' : 'operacao_interna';
+    }
+
+    function detectClientInText(text) {
+      const n = norm(text);
+      const ignore = new Set(['superlogica','condomob','ahreas','cond21','outro','adm','lote','parte','grupo','prime','cliente','projeto','dados','suporte','portal','geral','novo','nova','formula','pessoal']);
+      const cands = [];
+      for (const p of state.projects) {
+        for (const al of (p.aliases || [])) {
+          const an = norm(al);
+          if (an.length >= 3 && !ignore.has(an)) cands.push({ alias: an, project: p });
+        }
+      }
+      cands.sort((a,b) => b.alias.length - a.alias.length);
+      for (const c of cands) {
+        const escAl = c.alias.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        if (new RegExp(`(?<![a-z0-9])${escAl}(?![a-z0-9])`).test(n)) return { project: c.project, matchedAlias: c.alias };
+      }
+      return null;
+    }
+
+    function runMentorEngine(text, audience, goal, selectedProj, history) {
+      const n = norm(text);
+      const comb = history.length ? norm(history[0].userText + ' ' + text) : n;
+      const autoMatch = detectClientInText(text);
+      const rawCat = autoMatch ? 'cliente_vinculado' : classifyMessageCategory(text);
+      const isNonClient = !autoMatch && rawCat === 'operacao_interna' && !history.length;
+      const proj = autoMatch ? autoMatch.project : (isNonClient ? null : selectedProj);
+
+      const mentionsIz = /\biz\b|pjbank|inadimplencia zero/.test(comb);
+      const mentionsClient = /cliente|subindo|arquivo|dados bancarios|validac|retorno|aguardando/.test(comb);
+      const mentionsDef = /desculp|correria|nao deu tempo|nao vi|estava correndo|infelizmente/.test(n);
+      const asksShort = /mais curt|resum|diret|whatsapp/.test(n);
+      const asksFirm = /mais firm|cobr|data-limite|assertiv/.test(n);
+      const asksEmail = /e-?mail|formal/.test(n);
+      const asksRisk = /risco|impacto|esperar|decisao/.test(n);
+
+      const pName = proj ? shortName(proj.name) : '';
+      const activeLots = proj ? proj.tasks.filter(t => t.status === 'Active') : [];
+      const allVal = activeLots.length > 0 && activeLots.every(t => t.customStatus === '05 - Validação Cliente');
+      const contact = isNonClient ? 'pessoal' : (audience === 'implantacao' && proj && proj.implantationOwner) ? proj.implantationOwner.split(' ')[0] : audience === 'cliente' ? '[Contato]' : 'pessoal';
+
+      const crossText = autoMatch
+        ? `Cliente identificado no Wrike: ${pName} (${allVal ? 'importação concluída, aguard. aceite' : 'em execução'})`
+        : isNonClient ? 'Assunto interno / processo (não é de cliente)'
+        : proj ? `Contexto: ${pName}`
+        : rawCat === 'possivel_cliente' ? 'Possível assunto de cliente — cliente não citado no texto' : 'Conversa geral';
+      const crossTone = autoMatch ? 'ok' : isNonClient ? 'info' : rawCat === 'possivel_cliente' && !proj ? 'warn' : '';
+
+      const missing = [];
+      if (rawCat === 'possivel_cliente' && !proj) missing.push('Cliente não citado no texto — escolha acima qual projeto do Wrike é impactado.');
+      if (!isNonClient && !/\d{1,2}\/\d{1,2}|hoje|amanha|segunda|terca|quarta|quinta|sexta/.test(n)) missing.push('Falta combinar previsão/data explícita de retorno.');
+      if (mentionsIz) missing.push('Confirmar ponto focal e prazo no time de IZ (direcionamento ≠ resolução).');
+      if (activeLots.length > 1 && !/lote\s*0?[1-9]/.test(n)) missing.push(`Há ${activeLots.length} lotes ativos — especificar qual lote está sendo tratado.`);
+
+      const risks = [];
+      if (mentionsDef) risks.push('Evite justificativas defensivas ("correria", "não vi").');
+      if (isNonClient) risks.push('Assunto interno — manter fora dos projetos de clientes.');
+      else {
+        if (proj && proj.isBigplayer) risks.push('Cliente Bigplayer — priorizar comunicação proativa.');
+        if (mentionsIz) risks.push('Risco de 1 exceção (IZ) travar o aceite do lote inteiro.');
+      }
+
+      const greet = asksEmail ? `Olá, ${contact},\n\n` : asksShort ? `Oi, ${contact}! ` : `Oi, ${contact}, tudo bem?\n\n`;
+      let draft = '';
+      if (isNonClient) {
+        if (/instabilidade|nao funciona|conversor/.test(comb)) {
+          draft = asksShort ? 'Alinhando a instabilidade: já temos previsão de normalização? Assim ajusto nossa fila sem retrabalho.'
+            : 'Passando para alinhar esse ponto de instabilidade: conseguem confirmar se já existe previsão de normalização? Assim consigo organizar a fila e dar visibilidade ao time.';
+        } else if (/formulario|documento|processo|pipeline|mapeamento/.test(comb)) {
+          draft = asksShort ? 'Estruturei esse ajuste de processo conforme alinhamos. Conseguem validar até [dia/horário] para oficializarmos?'
+            : 'Conforme alinhamos, estruturei esse ajuste no nosso fluxo. Peço que validem até [dia/horário] se faz sentido ou se precisa de algum complemento antes de oficializarmos.';
+        } else {
+          draft = asksShort ? 'Alinhando esse ponto interno: revisei o cenário e sugiro seguirmos com [próximo passo]. De acordo?'
+            : 'Passando para alinhar esse ponto da nossa rotina: revisei o cenário e sugiro seguirmos com [encaminhamento], revisando até [data/horário]. Faz sentido para vocês?';
+        }
+      } else if (mentionsIz || audience === 'outra_area' || goal === 'escalar_bloqueio') {
+        const lbl = pName || '[Cliente]';
+        draft = asksShort ? `Alinhando ${lbl}: ficamos apenas com a pendência pontual direcionada ao IZ. Conseguem confirmar a previsão de retorno para eu atualizar o cronograma?`
+          : asksFirm ? `Passando para alinhar ${lbl}${proj && proj.isBigplayer ? ' (Bigplayer)' : ''}. A pendência pontual já foi direcionada, mas precisamos confirmar hoje quem está conduzindo e a data prevista de resolução para não segurar o restante da entrega.`
+          : `Passando para alinhar ${lbl}: ${allVal ? 'nossa importação já foi concluída e ' : ''}hoje ficamos apenas com 1 pendência pontual direcionada ao time de IZ.\n\nConseguimos seguir com a validação dos demais condomínios enquanto acompanho a previsão de retorno do IZ? Assim não travamos o lote inteiro por uma exceção.`;
+      } else if (goal === 'cobrar_retorno' || mentionsClient) {
+        const lbl = pName || '[Cliente]';
+        draft = asksShort ? `Alinhando ${lbl}: ${allVal ? 'a importação já foi concluída e aguardamos o aceite' : 'aguardamos o retorno/arquivos pendentes'} para seguir no cronograma. Qual data conseguimos combinar?`
+          : asksFirm ? `Passando para alinhar ${lbl}: ${allVal ? 'nossa importação técnica já está concluída' : 'nossa etapa técnica aguarda apenas o envio pendente'}.\n\nPara evitarmos novo desvio, conseguimos combinar uma data-limite até [dia/horário]?`
+          : `Passando para alinhar os próximos passos de ${lbl}. ${allVal ? 'Como a importação já foi concluída, aguardamos apenas a validação do cliente para encerrar o lote.' : 'Estamos aguardando o retorno pendente para avançar.'}\n\nConsegue me confirmar quando teremos esse retorno para eu manter o Wrike alinhado?`;
+      } else if (audience === 'lideranca' || goal === 'reportar_status') {
+        const lbl = pName || '[Cliente]';
+        draft = `Status objetivo — ${lbl}:\n• Fato: ${allVal ? 'importação concluída, aguardando validação do cliente.' : '[status confirmado].'}\n• Dependência: ${mentionsIz ? 'time de IZ (previsão cobrada).' : mentionsClient ? 'retorno do cliente.' : 'execução interna.'}\n• Próximo passo: [ação] com retorno previsto em [data].`;
+      } else {
+        const lbl = pName || '[Cliente]';
+        draft = `Alinhando ${lbl}: verifiquei os registros do projeto. Para seguirmos sem retrabalho, preciso confirmar apenas [ponto pendente] e a data prevista de retorno.`;
+      }
+      if (asksEmail) draft += '\n\nFico à disposição.\nTatiana';
+
+      const replyLead = history.length ? 'Ajustei o texto conforme você pediu — veja se já fica natural para enviar:'
+        : autoMatch ? `Cruzei com o Wrike e identifiquei **${pName}** (${allVal ? 'importação já concluída, em Validação Cliente' : 'na Fila de Execução'}). Minha sugestão de resposta:`
+        : isNonClient ? 'Esse ponto é assunto interno/processo (não é de cliente). Sugestão objetiva para alinhar com o time:'
+        : 'Analisei o contexto e montei uma sugestão de texto natural (edite ou peça ajustes abaixo):';
+
+      const learning = isNonClient ? 'Separar rotina interna de carteira de clientes mantém seus projetos limpos e dá visibilidade à sua atuação em processo.'
+        : mentionsIz ? 'Direcionamento não é resolução: cobrar previsão do IZ e desacoplar o restante do lote demonstra governança sênior.'
+        : 'Comunicação sênior traz fato claro + dependência separada + encaminhamento com prazo, sem justificativas defensivas.';
+
+      return {
+        resolvedProjectId: proj ? proj.id : '',
+        crossText, crossTone, replyLead,
+        strategicNote: asksRisk ? 'Esperar sem cobrar transfere o desgaste do atraso para sua fila. Cobrar previsão e isolar a exceção protege prazo e indicadores.' : '',
+        missing, risks, draft: greet + draft, learning
+      };
+    }
+
+    function renderConversa() {
+      const sel = document.getElementById('chat-proj'), pid = state.chatSession.projectId || '';
+      sel.innerHTML = `<option value="">Cliente: detectar automaticamente</option>` + state.projects.map(p => `<option value="${p.id}" ${p.id === pid ? 'selected' : ''}>${esc(shortName(p.name))} (${p.status === 'Active' ? 'Ativo' : p.status})</option>`).join('');
+      document.getElementById('chat-aud').value = state.chatSession.audience || 'implantacao';
+      document.getElementById('chat-goal').value = state.chatSession.goal || 'cobrar_retorno';
+
+      const proj = state.projects.find(p => p.id === pid), strip = document.getElementById('chat-context-strip');
+      if (proj) {
+        const act = proj.tasks.filter(t => t.status === 'Active');
+        strip.style.display = 'flex';
+        strip.innerHTML = `<span class="muted">Contexto ativo: <strong style="color:var(--fg);">${esc(shortName(proj.name))}</strong> · ${act.length} lote(s) ativo(s)${proj.implantationOwner ? ' · Imp.: ' + esc(proj.implantationOwner) : ''}</span><button onclick="openProj('${proj.id}')" class="btn-link">Abrir 360°</button>`;
+      } else { strip.style.display = 'none'; }
+
+      const feed = document.getElementById('chat-feed'), turns = state.chatSession.turns || [];
+      if (!turns.length) {
+        feed.innerHTML = `<div style="padding:48px 16px; text-align:center;" class="space-y-sm"><p style="font-weight:500;">Como posso te ajudar a responder hoje?</p><p class="muted" style="max-width:460px; margin:0 auto;">Cole uma mensagem do WhatsApp ou explique o caso. Eu cruzo automaticamente com seus clientes do Wrike, identifico se é assunto interno e sugiro o texto pronto.</p></div>`;
+        return;
+      }
+
+      feed.innerHTML = turns.map((t, i) => `
+        <div class="bubble-user">${esc(t.userText)}</div>
+        <div class="space-y-sm">
+          <div>${dotTag(t.a.crossText, t.a.crossTone)}</div>
+          <p style="font-size:13px;">${esc(t.a.replyLead).replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')}</p>
+          ${t.a.strategicNote ? `<p class="muted" style="border-left:2px solid var(--primary); padding-left:10px;">${esc(t.a.strategicNote)}</p>` : ''}
+          <div class="card space-y-sm">
+            <textarea id="draft-${i}" rows="4" style="width:100%; border:0; background:transparent; font-size:13px; line-height:1.55; resize:vertical;">${esc(t.a.draft)}</textarea>
+            <div class="row-between" style="padding-top:8px; border-top:1px solid var(--border);">
+              <span class="muted" style="font-size:11.5px;">Sugestão editável</span>
+              <div class="row-gap">
+                <button onclick="copyDraft(${i})" class="btn-link" style="color:var(--fg);">Copiar texto</button>
+                ${t.projectId ? `<button onclick="saveDraft(${i},'${t.projectId}')" class="btn-link">Salvar no projeto</button>` : ''}
+              </div>
+            </div>
+          </div>
+          <details>
+            <summary>▸ Ver leitura sênior (lacunas, riscos e aprendizado)</summary>
+            <div class="muted space-y-sm" style="margin-top:8px; padding-left:12px; border-left:1px solid var(--border);">
+              ${t.a.missing.length ? `<div><strong style="color:var(--fg);">Confirmar:</strong> ${t.a.missing.map(esc).join(' · ')}</div>` : ''}
+              ${t.a.risks.length ? `<div><strong style="color:var(--fg);">Atenção:</strong> ${t.a.risks.map(esc).join(' · ')}</div>` : ''}
+              <div><strong style="color:var(--fg);">Aprendizado:</strong> ${esc(t.a.learning)}</div>
+            </div>
+          </details>
+        </div>
+      `).join('');
+      feed.scrollTop = feed.scrollHeight;
+    }
+
+    window.copyDraft = async function(i) {
+      try { await navigator.clipboard.writeText(document.getElementById('draft-' + i).value); toast('Texto copiado.'); }
+      catch { toast('Selecione e copie o texto.'); }
+    };
+    window.saveDraft = function(i, pid) {
+      const txt = document.getElementById('draft-' + i).value.trim(); if (!txt) return;
+      const now = new Date();
+      state.timeline.unshift({ id: 'dec_' + Date.now(), source: 'decision', date: now.toISOString().slice(0,10), time: now.toTimeString().slice(0,5), author: 'Tatiana', content: txt, projectId: pid, messageCategory: 'cliente_vinculado', dependencyOwner: 'nenhuma' });
+      saveState(); renderConversa(); toast('Salvo na linha do tempo do projeto.');
+    };
+
+    function sendChat(override) {
+      const inp = document.getElementById('chat-input');
+      const text = (override != null ? override : inp.value).trim(); if (!text) return;
+      const selPid = document.getElementById('chat-proj').value, aud = document.getElementById('chat-aud').value, goal = document.getElementById('chat-goal').value;
+      const selProj = state.projects.find(p => p.id === selPid) || null;
+      const a = runMentorEngine(text, aud, goal, selProj, state.chatSession.turns);
+      const effPid = a.resolvedProjectId || '';
+      state.chatSession = { projectId: effPid, audience: aud, goal, turns: [...state.chatSession.turns, { userText: text, projectId: effPid, a }] };
+      if (override == null) inp.value = '';
+      saveState(); renderConversa();
+    }
+
+    /* ========== 4. CARREIRA ========== */
+    function renderCarreira() {
+      const e = state.summary.exclusive, cm = e.cycleMetrics, valC = e.byCustomStatus['05 - Validação Cliente'] || 0;
+      document.getElementById('carreira-metrics').innerHTML = [
+        ['Importações Concluídas', (e.byStatus.Completed || 0) + valC, `${e.byStatus.Completed || 0} encerr. + ${valC} em aceite`],
+        ['Condomínios', fmtNum(e.volumesCompleted.condos), 'migrados (exclusivos)'],
+        ['Unidades', fmtNum(e.volumesCompleted.units), `${fmtNum(e.volumesCompleted.charges)} cobranças`],
+        ['Ciclo Real (Mediana)', cm.medianDays != null ? cm.medianDays + ' dias' : '—', cm.sampleSize ? `média ${cm.avgDays}d (n=${cm.sampleSize})` : 'importe o Wrike']
+      ].map(([l,v,s]) => `<div><div class="muted">${l}</div><div class="metric-val">${v}</div><div class="muted">${s}</div></div>`).join('');
+
+      const ms = e.monthlyCompleted || [];
+      const chart = document.getElementById('monthly-chart');
+      if (!ms.length) {
+        chart.innerHTML = '<div class="muted" style="padding:24px; text-align:center;">Importe sua planilha do Wrike para ver o gráfico mensal.</div>';
+      } else {
+        const maxV = Math.max(...ms.map(x => x.count), 1), W = 480, H = 150, pL = 16, pB = 22, pT = 18;
+        const slot = (W - pL * 2) / ms.length, bw = Math.min(28, slot * 0.55);
+        chart.innerHTML = `<svg viewBox="0 0 ${W} ${H}" style="width:100%; height:145px;">${ms.map((m,i) => {
+          const h = ((H - pB - pT) * m.count) / maxV, x = pL + i * slot + (slot - bw) / 2, y = H - pB - h;
+          return `<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${bw.toFixed(1)}" height="${Math.max(h,2).toFixed(1)}" rx="3" fill="${m.count === maxV ? 'var(--primary)' : 'var(--chart-2)'}" />
+            <text x="${(x+bw/2).toFixed(1)}" y="${(y-5).toFixed(1)}" text-anchor="middle" fill="var(--fg)" font-size="10.5" font-family="monospace">${m.count}</text>
+            <text x="${(x+bw/2).toFixed(1)}" y="${H-5}" text-anchor="middle" fill="var(--muted)" font-size="10.5">${m.month.slice(5)}/${m.month.slice(2,4)}</text>`;
+        }).join('')}</svg>`;
+      }
+
+      document.getElementById('cycle-callout').textContent = cm.sampleSize
+        ? `Nos ${cm.sampleSize} concluídos com datas completas, ${cm.afterEndDateCount} finalizaram após o End Date padrão (mediana real de ${cm.medianDays} dias) — base sólida para propor revisão de SLA em 1:1.`
+        : 'Após importar o Wrike, o cálculo automático de ciclo real vs. End Date aparece aqui.';
+
+      const dq = e.dataQuality, tot = Math.max(e.total, 1), canc = Math.max(e.byStatus.Cancelled || 1, 1);
+      document.getElementById('dq-bars').innerHTML = [
+        ['Start Date preenchido', tot - dq.missingStartDate, tot],
+        ['Motivo em Cancelados', canc - dq.cancelledWithoutReason, canc],
+        ['Tipo de Importação', tot - dq.missingImportType, tot],
+        ['Campo TMI', tot - dq.missingTmi, tot]
+      ].map(([l,f,b]) => {
+        const pct = e.total ? Math.round((f/b)*100) : 0;
+        return `<div class="space-y-sm" style="gap:4px;"><div class="row-between" style="font-size:12.5px;"><span>${l}</span><span class="mono muted">${pct}%</span></div><div class="bar-bg"><div class="bar-fill" style="width:${pct}%"></div></div></div>`;
+      }).join('');
+
+      const sysEntries = Object.entries(e.sourceSystems || {});
+      document.getElementById('sys-summary').textContent = sysEntries.length ? 'Origens: ' + sysEntries.sort((a,b)=>b[1]-a[1]).map(([k,v]) => `${k} (${v})`).join(' · ') : '';
+
+      document.getElementById('tracks-list').innerHTML = state.career.tracks.map(t => `
+        <div style="padding:11px 0;" class="row-between">
+          <div style="flex:1; min-width:0;"><div style="font-size:13px; font-weight:500;">${t.order}. ${esc(t.name)}</div><div class="muted">${esc(t.currentFocus)}</div></div>
+          <div class="row-gap" style="gap:4px;">${[1,2,3,4,5].map(lv => `<button onclick="setLv('${t.id}',${lv})" class="lv-btn ${lv <= t.level ? 'on' : ''}">${lv}</button>`).join('')}</div>
+        </div>
+      `).join('');
+
+      document.getElementById('ev-track').innerHTML = state.career.tracks.map(t => `<option value="${t.id}">${t.order}. ${esc(t.name)}</option>`).join('');
+      document.getElementById('ev-proj').innerHTML = `<option value="">Sem projeto</option>` + state.projects.map(p => `<option value="${p.id}">${esc(shortName(p.name))}</option>`).join('');
+      document.getElementById('ev-list').innerHTML = state.career.evidences.map(ev => `
+        <div style="padding:10px 0;">
+          <div class="row-between"><span style="font-size:13px; font-weight:500;">${esc(ev.title)}</span><span class="mono muted">${fmtDate(ev.date)}</span></div>
+          ${ev.impact ? `<p class="muted" style="margin-top:3px;">${esc(ev.impact)}</p>` : ''}
+        </div>
+      `).join('') || '<div class="muted" style="padding:14px 0;">Nenhuma evidência registrada ainda.</div>';
+    }
+    window.setLv = function(id, lv) { const t = state.career.tracks.find(x => x.id === id); if (t) { t.level = lv; saveState(); renderCarreira(); } };
+
+    /* ========== 5. ARQUIVOS & TRIAGEM ========== */
+    function renderImportar() {
+      document.getElementById('imp-owner').value = state.meta.ownerFilter || 'Tatiana Ramos';
+      const wm = state.meta.wrikeMeta, wa = state.meta.whatsappMeta;
+      if (wm) document.getElementById('imp-wrike-meta').textContent = `Atual: ${wm.fileName} (${wm.exclusiveCount} exclusivos + ${wm.sharedCount} comp., ${wm.excludedOtherOwners} de terceiros filtrados fora)`;
+      if (wa) document.getElementById('imp-wa-meta').textContent = `Atual: ${wa.fileName} (${wa.totalMessages} msgs, ${wa.autoLinkedCount} vinculadas a clientes)`;
+      renderTriage();
+    }
+
+    function renderTriage() {
+      const q = norm(document.getElementById('triage-q').value);
+      const unlinkedAll = state.timeline.filter(m => !m.projectId);
+      const counts = {
+        possivel_cliente: unlinkedAll.filter(m => (m.messageCategory || classifyMessageCategory(m.content)) === 'possivel_cliente').length,
+        operacao_interna: unlinkedAll.filter(m => (m.messageCategory || classifyMessageCategory(m.content)) === 'operacao_interna').length,
+        ruido_informal: unlinkedAll.filter(m => (m.messageCategory || classifyMessageCategory(m.content)) === 'ruido_informal').length
+      };
+      document.querySelectorAll('.tr-tab').forEach(b => {
+        const cat = b.dataset.trcat;
+        b.classList.toggle('active', cat === currentTriageCat);
+        const lbl = cat === 'possivel_cliente' ? 'Possíveis Clientes' : cat === 'operacao_interna' ? 'Não é Cliente (Operação)' : 'Ruído';
+        b.textContent = `${lbl} (${counts[cat] || 0})`;
+      });
+
+      const items = unlinkedAll.filter(m => (m.messageCategory || classifyMessageCategory(m.content)) === currentTriageCat && (!q || norm(m.author + ' ' + m.content).includes(q)));
+      const opts = `<option value="">Vincular ao cliente...</option>` + state.projects.map(p => `<option value="${p.id}">${esc(shortName(p.name))}</option>`).join('');
+
+      document.getElementById('triage-list').innerHTML = items.slice(0, 30).map(m => `
+        <div style="padding:14px 0;" class="space-y-sm">
+          <div class="row-between muted">
+            <span><strong style="color:var(--fg);">${esc(m.author)}</strong> · ${fmtDate(m.date)} ${esc(m.time||'')}</span>
+            ${currentTriageCat === 'operacao_interna' ? dotTag('Não é cliente', 'info') : currentTriageCat === 'possivel_cliente' ? dotTag('Possível cliente', 'warn') : dotTag('Ruído', '')}
+          </div>
+          <p style="font-size:13px; white-space:pre-wrap;">${esc(m.content)}</p>
+          <div class="row-gap">
+            <select id="ts-${m.id}" class="select select-auto" style="padding:4px 8px;">${opts}</select>
+            <button onclick="linkMsg('${m.id}')" class="btn-link">Vincular</button>
+            ${currentTriageCat === 'possivel_cliente' ? `<button onclick="markNonClient('${m.id}')" class="btn-link-muted" style="margin-left:8px;">Não é cliente</button>` : ''}
+            ${currentTriageCat === 'operacao_interna' ? `<button onclick="promoteEv('${m.id}')" class="btn-link-muted" style="margin-left:8px;">Salvar evidência</button>` : ''}
+          </div>
+        </div>
+      `).join('') || '<div class="muted" style="padding:20px; text-align:center;">Nenhuma mensagem nesta categoria.</div>';
+    }
+
+    window.linkMsg = function(id) {
+      const pid = document.getElementById('ts-' + id).value; if (!pid) return toast('Escolha um cliente.');
+      const m = state.timeline.find(x => x.id === id);
+      if (m) { m.projectId = pid; m.messageCategory = 'cliente_vinculado'; saveState(); renderTriage(); toast('Vinculada ao cliente.'); }
+    };
+    window.markNonClient = function(id) {
+      const m = state.timeline.find(x => x.id === id);
+      if (m) { m.messageCategory = 'operacao_interna'; saveState(); renderTriage(); toast('Separada como não-cliente.'); }
+    };
+    window.promoteEv = function(id) {
+      const m = state.timeline.find(x => x.id === id); if (!m) return;
+      state.career.evidences.unshift({ id: 'ev_' + Date.now(), date: m.date, trackId: 'automacao', title: m.content.slice(0, 70), impact: 'Entrega interna de processo (WhatsApp).' });
+      saveState(); toast('Salva nas Evidências Sênior.');
+    };
+
+    /* ========== PARSERS 100% NO NAVEGADOR ========== */
+    async function unzipXlsx(buf) {
+      const v = new DataView(buf), u8 = new Uint8Array(buf); let eocd = -1;
+      for (let i = u8.length - 22; i >= Math.max(0, u8.length - 65557); i--) { if (v.getUint32(i, true) === 0x06054b50) { eocd = i; break; } }
+      if (eocd < 0) throw new Error('Arquivo .xlsx inválido.');
+      let pos = v.getUint32(eocd + 16, true), cnt = v.getUint16(eocd + 10, true);
+      const files = {}, dec = new TextDecoder('utf-8');
+      for (let i = 0; i < cnt; i++) {
+        if (v.getUint32(pos, true) !== 0x02014b50) break;
+        const meth = v.getUint16(pos + 10, true), cSz = v.getUint32(pos + 20, true), nL = v.getUint16(pos + 28, true), eL = v.getUint16(pos + 30, true), cmL = v.getUint16(pos + 32, true), lOff = v.getUint32(pos + 42, true);
+        const name = dec.decode(u8.subarray(pos + 46, pos + 46 + nL));
+        pos += 46 + nL + eL + cmL;
+        if (name === 'xl/sharedStrings.xml' || name === 'xl/worksheets/sheet1.xml') {
+          const st = lOff + 30 + v.getUint16(lOff + 26, true) + v.getUint16(lOff + 28, true);
+          const comp = u8.subarray(st, st + cSz);
+          files[name] = meth === 0 ? dec.decode(comp) : await new Response(new Blob([comp]).stream().pipeThrough(new DecompressionStream('deflate-raw'))).text();
+        }
+      }
+      return files;
+    }
+
+    function parseCsv(text) {
+      const sep = text.indexOf(';') > -1 && text.indexOf(';') < text.indexOf('\n') ? ';' : ',';
+      const rows = []; let row = [], val = '', inQ = false;
+      for (let i = 0; i < text.length; i++) {
+        const c = text[i];
+        if (inQ) { if (c === '"' && text[i+1] === '"') { val += '"'; i++; } else if (c === '"') inQ = false; else val += c; }
+        else { if (c === '"') inQ = true; else if (c === sep) { row.push(val); val = ''; } else if (c === '\n') { row.push(val.replace(/\r$/,'')); rows.push(row); row = []; val = ''; } else val += c; }
+      }
+      if (val || row.length) { row.push(val.replace(/\r$/,'')); rows.push(row); }
+      return rows;
+    }
+
+    function parseDateIso(v) {
+      if (!v) return '';
+      const num = Number(v);
+      if (!Number.isNaN(num) && num > 20000 && num < 70000) return new Date(Date.UTC(1899, 11, 30) + num * 86400000).toISOString().slice(0,10);
+      const m1 = String(v).match(/^(\d{4}-\d{2}-\d{2})/); if (m1) return m1[1];
+      const m2 = String(v).match(/^(\d{2})\/(\d{2})\/(\d{4})/); if (m2) return `${m2[3]}-${m2[2]}-${m2[1]}`;
+      return '';
+    }
+
+    async function handleWrikeUpload(file, ownerFilter) {
+      let rows = [];
+      if (file.name.toLowerCase().endsWith('.csv')) rows = parseCsv(await file.text());
+      else {
+        const entries = await unzipXlsx(await file.arrayBuffer()), p = new DOMParser(), ss = [];
+        if (entries['xl/sharedStrings.xml']) p.parseFromString(entries['xl/sharedStrings.xml'], 'application/xml').querySelectorAll('si').forEach(si => ss.push(Array.from(si.querySelectorAll('t')).map(t => t.textContent || '').join('')));
+        p.parseFromString(entries['xl/worksheets/sheet1.xml'], 'application/xml').querySelectorAll('sheetData > row').forEach(rEl => {
+          const r = [];
+          rEl.querySelectorAll('c').forEach(c => {
+            const col = (c.getAttribute('r') || '').replace(/\d+/g,''); let idx = 0; for (const ch of col) idx = idx * 26 + (ch.charCodeAt(0) - 64);
+            const v = c.querySelector('v'), isEl = c.querySelector('is');
+            r[idx - 1] = v ? (c.getAttribute('t') === 's' ? (ss[Number(v.textContent)] || '') : (v.textContent || '')) : isEl ? Array.from(isEl.querySelectorAll('t')).map(x => x.textContent || '').join('') : '';
+          });
+          if (r.length) rows.push(r);
+        });
+      }
+      if (rows.length < 2) throw new Error('Planilha vazia.');
+      const hdr = rows[0].map(h => String(h || '').trim());
+      const get = (r, name) => { const i = hdr.indexOf(name); return i >= 0 && r[i] != null ? String(r[i]).trim() : ''; };
+      const ownerN = norm(ownerFilter), today = new Date(); today.setHours(0,0,0,0);
+      const tasks = []; let excluded = 0;
+
+      for (let i = 1; i < rows.length; i++) {
+        const r = rows[i], ass = get(r, 'Assigned To'); if (!ass) continue;
+        if (!norm(ass).includes(ownerN)) { excluded++; continue; }
+        const parts = ass.split(',').map(x => x.trim()).filter(Boolean);
+        const title = get(r, 'Title'), desc = get(r, 'Description');
+        const lic = (get(r, 'Licença') || (title.match(/\b(admin\d{4,}|A\d{10,})\b/i) || [])[1] || '').toLowerCase();
+        const impM = desc.match(/Seu Nome(?:\s*\|\s*|\s*[\r\n]+\s*)([^|\r\n]+)/i);
+        const nameM = desc.match(/Nome da Empresa(?:\s*-\s*Licen[çc]a)?(?:\s*\|\s*|\s*[\r\n]+\s*)([^|\r\n]+)/i);
+        const clientName = nameM ? nameM[1].replace(/\s*-\s*(admin\d+|A\d{8,}).*$/i,'').trim() : title.replace(/^\[[^\]]+\]\s*-?\s*/,'').split(' - ')[0].trim() || title;
+        const endDate = parseDateIso(get(r, 'End Date')), impDate = parseDateIso(get(r, 'Importação Concluída')), startDate = parseDateIso(get(r, 'Start Date'));
+        const status = get(r, 'Status'), customStatus = get(r, 'Custom status'), pauseReason = get(r, 'Motivo Pausa/Atraso');
+        const isBigplayer = norm(title + ' ' + desc).includes('bigplayer'), isVal = customStatus === '05 - Validação Cliente';
+        const alerts = [];
+        if (status === 'Active') {
+          if (isVal) {
+            if (!impDate) alerts.push({ severity: 'medium', message: "Importação concluída (Validação Cliente), mas falta preencher 'Importação Concluída'." });
+            else { const w = Math.round((today - new Date(impDate + 'T00:00:00')) / 86400000); if (w >= 5) alerts.push({ severity: 'info', message: `Importação concluída em ${fmtDate(impDate)} — ${w} dias aguardando aceite.` }); }
+          } else {
+            if (endDate) {
+              const d = Math.round((new Date(endDate + 'T00:00:00') - today) / 86400000);
+              if (d < 0) alerts.push({ severity: 'high', message: `Prazo de execução vencido há ${Math.abs(d)} dia(s) (${fmtDate(endDate)}).` });
+              else if (d <= 2) alerts.push({ severity: 'high', message: `Prazo crítico de execução: ${fmtDate(endDate)}.` });
+            }
+            if (customStatus === '01 - Aguardando Execução' && /cliente|subindo|arquivo/.test(norm(pauseReason))) alerts.push({ severity: 'medium', message: 'Dependência do cliente registrada em status de fila interna.' });
+          }
+        }
+        tasks.push({
+          key: get(r, 'Key').replace(/\.0$/,'') || String(i), title, clientName, license: lic, status, customStatus, isBigplayer,
+          isExclusive: parts.length === 1, startDate, endDate, importCompletedDate: impDate, pauseReason,
+          sourceSystem: get(r, 'Sistema Anterior (Condomínios)'), targetSystem: get(r, 'Sistema Destino'),
+          inImplementation: get(r, 'Em Implantação'), implantationOwner: impM && !impM[1].includes('@') ? impM[1].trim() : '',
+          condoCount: Number(get(r, 'Quantidade Condomínios')) || 0, unitCount: Number(get(r, 'Quantidade Unidades')) || 0, chargeCount: Number(get(r, 'Quantidade Cobranças')) || 0,
+          tmi: get(r, 'TMI'), importType: get(r, 'Tipo de Importação'),
+          alerts, priorityScore: status === 'Active' ? (isVal ? 15 : 40) + (isBigplayer ? 30 : 0) + (alerts.filter(a => a.severity === 'high').length * 18) : 0
+        });
+      }
+
+      const byP = {}; tasks.forEach(t => { const k = t.license || norm(t.clientName); (byP[k] = byP[k] || []).push(t); });
+      const projects = Object.entries(byP).map(([gk, items]) => {
+        items.sort((a,b) => (a.status === 'Active' ? 0 : 1) - (b.status === 'Active' ? 0 : 1));
+        const p0 = items[0], sts = new Set(items.map(x => x.status));
+        const status = sts.has('Active') ? 'Active' : sts.has('Completed') ? 'Completed' : 'Cancelled';
+        return {
+          id: 'p_' + gk.replace(/[^a-z0-9]/g,'').slice(0,14), name: p0.clientName, license: p0.license,
+          aliases: Array.from(new Set([p0.license, norm(shortName(p0.clientName)), norm(p0.sourceSystem) === 'prg' ? 'prg' : ''].filter(x => x && x.length >= 3))),
+          status, ownership: items.every(x => x.isExclusive) ? 'exclusivo' : 'compartilhado',
+          isBigplayer: items.some(x => x.isBigplayer), inImplementation: items.some(x => x.inImplementation === 'Sim') ? 'Sim' : '',
+          implantationOwner: (items.find(x => x.implantationOwner) || {}).implantationOwner || '',
+          sourceSystems: Array.from(new Set(items.map(x => x.sourceSystem).filter(Boolean))),
+          targetSystems: Array.from(new Set(items.map(x => x.targetSystem).filter(Boolean))),
+          priorityScore: Math.max(...items.map(x => x.priorityScore), 0),
+          activeLots: items.filter(x => x.status === 'Active').length,
+          totalCondos: items.reduce((s,x)=>s+x.condoCount,0), totalUnits: items.reduce((s,x)=>s+x.unitCount,0), totalCharges: items.reduce((s,x)=>s+x.chargeCount,0),
+          nextDueDate: items.filter(x => x.status === 'Active' && x.endDate).map(x => x.endDate).sort()[0] || '',
+          alerts: items.flatMap(x => x.alerts.map(a => ({ ...a, taskKey: x.key }))), tasks: items
+        };
+      }).sort((a,b) => (a.status === 'Active' ? 0 : 1) - (b.status === 'Active' ? 0 : 1) || b.priorityScore - a.priorityScore);
+
+      const excl = tasks.filter(t => t.isExclusive), comp = excl.filter(t => t.status === 'Completed'), act = excl.filter(t => t.status === 'Active'), canc = excl.filter(t => t.status === 'Cancelled');
+      const mC = {}, sC = {}, cycles = []; let afterEnd = 0, onTime = 0;
+      comp.forEach(t => { if (t.importCompletedDate) mC[t.importCompletedDate.slice(0,7)] = (mC[t.importCompletedDate.slice(0,7)]||0)+1; if (t.startDate && t.importCompletedDate) cycles.push(Math.round((new Date(t.importCompletedDate)-new Date(t.startDate))/86400000)); if (t.endDate && t.importCompletedDate) { if (t.importCompletedDate <= t.endDate) onTime++; else afterEnd++; } });
+      excl.forEach(t => { const k = t.sourceSystem || '(vazio)'; sC[k] = (sC[k]||0)+1; });
+      cycles.sort((a,b)=>a-b);
+
+      state.projects = projects;
+      state.meta.ownerFilter = ownerFilter;
+      state.meta.wrikeMeta = { fileName: file.name, totalRowsInFile: rows.length - 1, excludedOtherOwners: excluded, matchedTotal: tasks.length, exclusiveCount: excl.length, sharedCount: tasks.length - excl.length, projectCount: projects.length };
+      state.summary = {
+        exclusive: {
+          total: excl.length, byStatus: { Completed: comp.length, Active: act.length, Cancelled: canc.length },
+          byCustomStatus: { '05 - Validação Cliente': act.filter(t => t.customStatus === '05 - Validação Cliente').length },
+          volumesCompleted: { condos: comp.reduce((s,x)=>s+x.condoCount,0), units: comp.reduce((s,x)=>s+x.unitCount,0), charges: comp.reduce((s,x)=>s+x.chargeCount,0) },
+          volumesActive: { condos: act.reduce((s,x)=>s+x.condoCount,0), units: act.reduce((s,x)=>s+x.unitCount,0), charges: act.reduce((s,x)=>s+x.chargeCount,0) },
+          sourceSystems: sC, monthlyCompleted: Object.entries(mC).sort().map(([month,count])=>({month,count})),
+          cycleMetrics: { sampleSize: cycles.length, medianDays: cycles.length ? cycles[Math.floor(cycles.length/2)] : null, avgDays: cycles.length ? Number((cycles.reduce((a,b)=>a+b,0)/cycles.length).toFixed(1)) : null, onTimeCount: onTime, afterEndDateCount: afterEnd },
+          dataQuality: { missingTmi: excl.filter(t=>!t.tmi).length, missingStartDate: excl.filter(t=>!t.startDate).length, missingImportType: excl.filter(t=>!t.importType).length, cancelledWithoutReason: canc.filter(t=>!t.pauseReason).length }
+        },
+        allWithParticipation: { total: tasks.length }
+      };
+      selectedProjId = projects[0]?.id || null;
+      saveState(); render();
+      toast(`Wrike importado: ${projects.length} projetos (${excl.length} exclusivos).`);
+    }
+
+    async function handleWaUpload(file) {
+      const text = await file.text(), msgs = [], lines = text.split(/\r?\n/);
+      let curDate = new Date().toISOString().slice(0,10);
+      const mPt = { janeiro:'01', fevereiro:'02', marco:'03', abril:'04', maio:'05', junho:'06', julho:'07', agosto:'08', setembro:'09', outubro:'10', novembro:'11', dezembro:'12' };
+      for (const line of lines) {
+        const dm = line.match(/^##\s+(\d{1,2})\s+de\s+([a-zA-ZçÇ]+)\s+de\s+(\d{4})/);
+        if (dm) { curDate = `${dm[3]}-${mPt[norm(dm[2])] || '01'}-${String(dm[1]).padStart(2,'0')}`; continue; }
+        const mm = line.match(/^\[(\d{1,2}:\d{2})\]\s+\*\*([^*]+?):\*\*\s*(.+)$/);
+        const tm = !mm && line.match(/^[\u200e\ufeff]?\[(\d{1,2}\/\d{1,2}\/\d{2,4}),\s*([^\]]+)\]\s*([^:]+?):\s*(.+)$/);
+        if (mm || tm) {
+          const author = mm ? mm[2].trim() : tm[3].trim(), content = mm ? mm[3].trim() : tm[4].trim();
+          if (!content || content === '[Imagem]' || content.includes('imagem ocultada')) continue;
+          const match = detectClientInText(content);
+          const pid = match ? match.project.id : null;
+          const cat = pid ? 'cliente_vinculado' : classifyMessageCategory(content);
+          msgs.push({ id: 'wa_' + Math.random().toString(36).slice(2,10), source: 'whatsapp', date: curDate, time: mm ? mm[1] : '', author, content, projectId: pid, messageCategory: cat, dependencyOwner: /\biz\b|pjbank|suporte/.test(norm(content)) ? 'outra_area' : 'nenhuma' });
+        }
+      }
+      state.timeline = [...msgs.reverse().slice(0, 200), ...state.timeline.filter(x => x.source !== 'whatsapp')];
+      const linkedC = msgs.filter(m => m.projectId).length;
+      const nonClientC = msgs.filter(m => m.messageCategory !== 'cliente_vinculado' && m.messageCategory !== 'possivel_cliente').length;
+      state.meta.whatsappMeta = { fileName: file.name, totalMessages: msgs.length, autoLinkedCount: linkedC };
+      saveState(); render();
+      toast(`WhatsApp cruzado: ${linkedC} de clientes · ${nonClientC} separadas como não-cliente.`);
+    }
+
+    /* ========== EVENTS & INIT ========== */
+    document.querySelectorAll('.nav-btn').forEach(b => b.addEventListener('click', () => switchTab(b.dataset.tab)));
+    document.querySelectorAll('.rt-tab').forEach(b => b.addEventListener('click', () => { currentRtTab = b.dataset.rt; renderRoutineEditor(); }));
+    document.querySelectorAll('.tr-tab').forEach(b => b.addEventListener('click', () => { currentTriageCat = b.dataset.trcat; renderTriage(); }));
+    document.getElementById('theme-toggle').addEventListener('click', () => {
+      const cur = document.documentElement.getAttribute('data-theme') || 'light';
+      applyTheme(cur === 'dark' ? 'light' : 'dark');
+    });
+    ['proj-search', 'proj-status', 'proj-own'].forEach(id => { document.getElementById(id).addEventListener('input', renderProjetos); document.getElementById(id).addEventListener('change', renderProjetos); });
+    document.getElementById('chat-proj').addEventListener('change', e => { state.chatSession.projectId = e.target.value; saveState(); renderConversa(); });
+    document.getElementById('chat-send').addEventListener('click', () => sendChat());
+    document.getElementById('chat-input').addEventListener('keydown', e => { if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') { e.preventDefault(); sendChat(); } });
+    document.querySelectorAll('.quick-chip').forEach(c => c.addEventListener('click', () => sendChat(c.dataset.q)));
+    document.getElementById('chat-reset').addEventListener('click', () => { state.chatSession.turns = []; saveState(); renderConversa(); toast('Nova conversa.'); });
+
+    document.getElementById('ev-form').addEventListener('submit', e => {
+      e.preventDefault();
+      state.career.evidences.unshift({ id: 'ev_' + Date.now(), date: new Date().toISOString().slice(0,10), trackId: document.getElementById('ev-track').value, title: document.getElementById('ev-title').value.trim(), impact: document.getElementById('ev-impact').value.trim() });
+      document.getElementById('ev-title').value = ''; document.getElementById('ev-impact').value = '';
+      saveState(); renderCarreira(); toast('Evidência salva.');
+    });
+
+    document.getElementById('imp-wrike-file').addEventListener('change', e => { if (e.target.files[0]) document.getElementById('imp-wrike-lbl').textContent = e.target.files[0].name; });
+    document.getElementById('imp-wa-file').addEventListener('change', e => { if (e.target.files[0]) document.getElementById('imp-wa-lbl').textContent = e.target.files[0].name; });
+    document.getElementById('imp-wrike-btn').addEventListener('click', async () => {
+      const f = document.getElementById('imp-wrike-file').files[0]; if (!f) return toast('Selecione um arquivo .xlsx ou .csv.');
+      try { await handleWrikeUpload(f, document.getElementById('imp-owner').value.trim() || 'Tatiana Ramos'); } catch (e) { toast('Erro: ' + e.message); }
+    });
+    document.getElementById('imp-wa-btn').addEventListener('click', async () => {
+      const f = document.getElementById('imp-wa-file').files[0]; if (!f) return toast('Selecione um arquivo .txt ou .md.');
+      try { await handleWaUpload(f); } catch (e) { toast('Erro: ' + e.message); }
+    });
+    document.getElementById('triage-q').addEventListener('input', renderTriage);
+
+    // Backup export / import / clear
+    document.getElementById('export-backup-btn').addEventListener('click', () => {
+      const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = `mentora-senior-backup-${new Date().toISOString().slice(0,10)}.json`;
+      a.click(); URL.revokeObjectURL(url);
+      toast('Backup .json exportado.');
+    });
+    document.getElementById('import-backup-file').addEventListener('change', async e => {
+      const f = e.target.files[0]; if (!f) return;
+      try {
+        const parsed = JSON.parse(await f.text());
+        if (!parsed.projects || !parsed.career) throw new Error('Backup inválido.');
+        state = parsed; selectedProjId = state.projects[0]?.id || null;
+        saveState(); render(); toast('Backup restaurado com sucesso.');
+      } catch (err) { toast('Erro ao restaurar backup: ' + err.message); }
+    });
+    document.getElementById('clear-data-btn').addEventListener('click', () => {
+      if (!confirm('Limpar todos os dados locais salvos neste navegador?')) return;
+      state = createEmptyState(); selectedProjId = null; saveState(); render(); toast('Dados locais limpos.');
+    });
+
+    applyTheme(localStorage.getItem(THEME_KEY) || 'light');
+    switchTab('rotina');
+  </script>
 </body>
 </html>
